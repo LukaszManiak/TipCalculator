@@ -6,6 +6,14 @@ function App() {
         <h1>TTER</h1>
       </div>
 
+      <SplitterCalc />
+    </>
+  );
+}
+
+function SplitterCalc() {
+  return (
+    <>
       {/* main container */}
       <div className="spliter-container">
         {/* left side */}
