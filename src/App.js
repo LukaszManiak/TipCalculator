@@ -1,4 +1,4 @@
-import { Children, useState } from "react";
+import { useState } from "react";
 
 const tipOptions = [5, 10, 15, 25, 50];
 
