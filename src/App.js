@@ -3,7 +3,7 @@ import { useState } from "react";
 const tipOptions = [5, 10, 15, 25, 50];
 
 function App() {
-  const [bill, setBill] = useState("");
+  const [bill, setBill] = useState(0);
   const [tip, setTip] = useState(null);
   const [numberOfPeople, setNumberOfPeople] = useState("");
 
@@ -23,8 +23,8 @@ function App() {
   let tipPerPerson = 0;
   let tipAmount = bill * (0.1 * tip);
   let total = tipAmount + bill;
-  tipPerPerson = tipAmount / numberOfPeople;
-  totalPerPerson = total / numberOfPeople;
+  tipPerPerson = (tipAmount / numberOfPeople).toFixed(2);
+  totalPerPerson = (total / numberOfPeople).toFixed(2);
 
   function handleReset() {
     setTip(0);
@@ -69,11 +69,11 @@ function LeftSide({
   tipOptions,
 }) {
   const [curOpen, setCurOpen] = useState(null);
-  const [customTip, setCustomTip] = useState("");
+  const [customTip, setCustomTip] = useState("custom");
 
   function handleCustomTip(e) {
     setCustomTip(+e.target.value);
-    console.log(customTip);
+    onTipChange(customTip);
   }
 
   function printData(key) {
@@ -87,7 +87,7 @@ function LeftSide({
         <p>Bill</p>
         <input
           className="input"
-          type="text"
+          type="number"
           placeholder="0"
           value={bill}
           onChange={(e) => onBillChange(e)}
@@ -104,8 +104,9 @@ function LeftSide({
 
           <input
             className={`tip-input`}
-            type="text"
+            type="number"
             placeholder="custom"
+            value={customTip}
             onClick={() => printData("custom")}
             onChange={(e) => handleCustomTip(e)}
           />

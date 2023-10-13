@@ -117,3 +117,21 @@ body {
 .hidden {
   display: none;
 }
+
+@media (max-width: 976px) {
+  /* html {
+    overflow-x: hidden;
+  } */
+  .spliter-tag {
+    top: 8%;
+  }
+  .spliter-container {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+  .left-side,
+  .right-side {
+    width: 80%;
+  }
+}
