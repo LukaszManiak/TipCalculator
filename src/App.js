@@ -6,6 +6,18 @@ function App() {
   const [bill, setBill] = useState(0);
   const [tip, setTip] = useState(null);
   const [numberOfPeople, setNumberOfPeople] = useState("");
+  const [curOpen, setCurOpen] = useState(null);
+  const [customTip, setCustomTip] = useState("custom");
+
+  function handleCustomTip(e) {
+    setCustomTip(+e.target.value);
+    handleTipChange(customTip);
+  }
+
+  function handleCurChange(key) {
+    setCurOpen(key);
+    console.log(curOpen);
+  }
 
   function handleBillChange(e) {
     setBill(+e.target.value);
@@ -30,6 +42,10 @@ function App() {
     setTip(0);
     setBill(0);
     setNumberOfPeople("");
+    setCustomTip("custom");
+    setCurOpen(null);
+    totalPerPerson = 0;
+    tipPerPerson = 0;
   }
 
   return (
@@ -47,6 +63,9 @@ function App() {
           onTipChange={handleTipChange}
           onPeopleChange={handleNumberOfPeople}
           tipOptions={tipOptions}
+          onCurChange={handleCurChange}
+          onCustomTip={handleCustomTip}
+          customTip={customTip}
         />
         <RightSide
           tipPerPerson={tipPerPerson}
@@ -67,20 +86,10 @@ function LeftSide({
   onPeopleChange,
   onTipChange,
   tipOptions,
+  onCurChange,
+  onCustomTip,
+  customTip,
 }) {
-  const [curOpen, setCurOpen] = useState(null);
-  const [customTip, setCustomTip] = useState("custom");
-
-  function handleCustomTip(e) {
-    setCustomTip(+e.target.value);
-    onTipChange(customTip);
-  }
-
-  function printData(key) {
-    setCurOpen(key);
-    console.log(curOpen);
-  }
-
   return (
     <div className="left-side">
       <div>
@@ -107,8 +116,8 @@ function LeftSide({
             type="number"
             placeholder="custom"
             value={customTip}
-            onClick={() => printData("custom")}
-            onChange={(e) => handleCustomTip(e)}
+            onClick={() => onCurChange("custom")}
+            onChange={(e) => onCustomTip(e)}
           />
         </div>
       </div>
