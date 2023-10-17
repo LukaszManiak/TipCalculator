@@ -2,6 +2,7 @@
 
 :root {
   --strongCyan: hsl(172, 67%, 45%);
+  --lightStrongCyan: hsl(173, 61%, 77%);
   --veryDarkCyan: hsl(183, 100%, 15%);
   --darkGrayishCyan: hsl(186, 14%, 43%);
   --grayishCyan: hsl(184, 14%, 56%);
@@ -15,6 +16,8 @@ html,
   margin: 0;
   font-family: "Space Mono", monospace;
   font-size: 24px;
+  color: var(--darkGrayishCyan);
+  font-weight: bold;
 }
 
 body {
@@ -77,7 +80,7 @@ body {
 }
 
 .tip-option:hover {
-  background-color: var(--grayishCyan);
+  background-color: var(--lightStrongCyan);
 }
 
 .tip-input {
@@ -107,6 +110,14 @@ body {
   align-items: center;
 }
 
+.per-person-p {
+  font-size: 0.8rem;
+  color: var(--grayishCyan);
+}
+.result-header-p {
+  color: var(--white);
+}
+
 .tip {
   font-size: 2rem;
   color: var(--strongCyan);
@@ -114,8 +125,14 @@ body {
 
 .reset-btn {
   width: 100%;
+  background-color: var(--strongCyan);
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
 }
-
+.reset-btn:hover {
+  background-color: var(--veryLightGrayishCyan);
+}
 .hidden {
   display: none;
 }

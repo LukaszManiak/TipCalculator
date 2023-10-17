@@ -156,8 +156,8 @@ function RightSide({ totalPerPerson, tipPerPerson, onReset }) {
         {/* tip amount */}
         <div className="result-container">
           <div>
-            <p>Tip amount</p>
-            <p>/ person</p>
+            <p className="result-header-p">Tip amount</p>
+            <p className="per-person-p">/ person</p>
           </div>
 
           <p className="tip">${tipPerPerson ? tipPerPerson : "0.00"}</p>
@@ -165,8 +165,8 @@ function RightSide({ totalPerPerson, tipPerPerson, onReset }) {
         {/* total */}
         <div className="result-container">
           <div>
-            <p>Total</p>
-            <p>/ person</p>
+            <p className="result-header-p">Total</p>
+            <p className="per-person-p">/ person</p>
           </div>
 
           <p className="tip">${totalPerPerson ? totalPerPerson : "0.00"}</p>
