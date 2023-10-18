@@ -5,13 +5,14 @@ const tipOptions = [5, 10, 15, 25, 50];
 function App() {
   const [bill, setBill] = useState(0);
   const [tip, setTip] = useState(null);
-  const [numberOfPeople, setNumberOfPeople] = useState("");
+  const [numberOfPeople, setNumberOfPeople] = useState(1);
   const [curOpen, setCurOpen] = useState(null);
   const [customTip, setCustomTip] = useState("custom");
 
   function handleCustomTip(e) {
-    setCustomTip(+e.target.value);
-    handleTipChange(customTip);
+    const customTipValue = +e.target.value;
+    setCustomTip(customTipValue);
+    handleTipChange(customTipValue);
   }
 
   function handleCurChange(key) {
@@ -129,7 +130,7 @@ function LeftSide({
         </div>
         <input
           className="input"
-          type="text"
+          type="number"
           placeholder="0"
           value={numberOfPeople}
           onChange={(e) => onPeopleChange(e)}
@@ -160,7 +161,7 @@ function RightSide({ totalPerPerson, tipPerPerson, onReset }) {
             <p className="per-person-p">/ person</p>
           </div>
 
-          <p className="tip">${tipPerPerson ? tipPerPerson : "0.00"}</p>
+          <p className="tip">${+tipPerPerson ? +tipPerPerson : "0.00"}</p>
         </div>
         {/* total */}
         <div className="result-container">
@@ -169,7 +170,7 @@ function RightSide({ totalPerPerson, tipPerPerson, onReset }) {
             <p className="per-person-p">/ person</p>
           </div>
 
-          <p className="tip">${totalPerPerson ? totalPerPerson : "0.00"}</p>
+          <p className="tip">${+totalPerPerson ? +totalPerPerson : "0.00"}</p>
         </div>
       </div>
       <button onClick={() => onReset()} className="reset-btn">
