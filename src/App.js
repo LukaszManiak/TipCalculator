@@ -37,7 +37,8 @@ function App() {
   let tipAmount = bill * (0.1 * tip);
   let total = tipAmount + bill;
   tipPerPerson = (tipAmount / numberOfPeople).toFixed(2);
-  totalPerPerson = (total / numberOfPeople).toFixed(2);
+  totalPerPerson =
+    numberOfPeople !== 0 ? (total / numberOfPeople).toFixed(2) : 0;
 
   function handleReset() {
     setTip(0);
@@ -49,6 +50,7 @@ function App() {
     tipPerPerson = 0;
   }
 
+  console.log(totalPerPerson);
   return (
     <>
       <div className="spliter-tag">
