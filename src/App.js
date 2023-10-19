@@ -5,7 +5,7 @@ const tipOptions = [5, 10, 15, 25, 50];
 function App() {
   const [bill, setBill] = useState(0);
   const [tip, setTip] = useState(null);
-  const [numberOfPeople, setNumberOfPeople] = useState(1);
+  const [numberOfPeople, setNumberOfPeople] = useState(0);
   const [curOpen, setCurOpen] = useState(null);
   const [customTip, setCustomTip] = useState("custom");
 

@@ -15,13 +15,14 @@ html,
 * {
   margin: 0;
   font-family: "Space Mono", monospace;
-  font-size: 24px;
+  font-size: 1.2rem;
   color: var(--darkGrayishCyan);
   font-weight: bold;
 }
 
 body {
   background-color: var(--lightGrayishCyan);
+  font-size: 24px;
 }
 
 .spliter-tag {
@@ -129,6 +130,7 @@ body {
   border: none;
   border-radius: 0.2rem;
   cursor: pointer;
+  color: var(--veryDarkCyan);
 }
 .reset-btn:hover {
   background-color: var(--veryLightGrayishCyan);
@@ -140,25 +142,36 @@ body {
 @media (max-width: 976px) {
   html,
   * {
-    font-size: 20px;
-    overflow: hidden;
+    overflow-x: hidden;
+    font-size: 1.1rem;
+  }
+  body {
+    font-size: 18px;
+  }
+  input,
+  div {
+    overflow-y: hidden;
   }
   .spliter-tag {
-    top: 8%;
+    top: 7%;
   }
   .spliter-container {
-    width: 80%;
-    top: 50%;
+    width: 70%;
+    height: 100%;
+    top: 8%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 8%);
     flex-direction: column;
-    height: auto;
+
     align-items: center;
     justify-content: space-between;
   }
   .left-side,
   .right-side {
     width: 90%;
+  }
+  .left-side {
+    height: 55%;
   }
 
   .tip-option,
@@ -172,5 +185,6 @@ body {
 
   .right-side {
     margin-top: 30px;
+    height: 35%;
   }
 }
