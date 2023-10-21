@@ -5,19 +5,20 @@ const tipOptions = [5, 10, 15, 25, 50];
 function App() {
   const [bill, setBill] = useState(0);
   const [tip, setTip] = useState(null);
-  const [numberOfPeople, setNumberOfPeople] = useState(0);
+  const [numberOfPeople, setNumberOfPeople] = useState("");
   const [curOpen, setCurOpen] = useState(null);
   const [customTip, setCustomTip] = useState("custom");
 
   function handleCustomTip(e) {
     const customTipValue = +e.target.value;
+    setTip(null);
     setCustomTip(customTipValue);
     handleTipChange(customTipValue);
   }
 
   function handleCurChange(key) {
+    setTip(null);
     setCurOpen(key);
-    console.log(curOpen);
   }
 
   function handleBillChange(e) {
@@ -26,7 +27,6 @@ function App() {
 
   function handleTipChange(val) {
     setTip(val);
-    console.log(tip);
   }
   function handleNumberOfPeople(e) {
     setNumberOfPeople(+e.target.value);
@@ -36,9 +36,9 @@ function App() {
   let tipPerPerson = 0;
   let tipAmount = bill * (0.1 * tip);
   let total = tipAmount + bill;
-  tipPerPerson = (tipAmount / numberOfPeople).toFixed(2);
-  totalPerPerson =
-    numberOfPeople !== 0 ? (total / numberOfPeople).toFixed(2) : 0;
+  tipPerPerson =
+    numberOfPeople > 0 ? (tipAmount / numberOfPeople).toFixed(2) : 0;
+  totalPerPerson = numberOfPeople > 0 ? (total / numberOfPeople).toFixed(2) : 0;
 
   function handleReset() {
     setTip(0);
@@ -50,7 +50,6 @@ function App() {
     tipPerPerson = 0;
   }
 
-  console.log(totalPerPerson);
   return (
     <>
       <div className="spliter-tag">
@@ -66,14 +65,18 @@ function App() {
           onTipChange={handleTipChange}
           onPeopleChange={handleNumberOfPeople}
           tipOptions={tipOptions}
+          mainTip={tip}
           onCurChange={handleCurChange}
           onCustomTip={handleCustomTip}
           customTip={customTip}
+          curOpen={curOpen}
         />
         <RightSide
           tipPerPerson={tipPerPerson}
           totalPerPerson={totalPerPerson}
           onReset={handleReset}
+          numberOfPeople={numberOfPeople}
+          bill={bill}
         />
       </div>
     </>
@@ -92,6 +95,8 @@ function LeftSide({
   onCurChange,
   onCustomTip,
   customTip,
+  mainTip,
+  curOpen,
 }) {
   return (
     <div className="left-side">
@@ -109,13 +114,20 @@ function LeftSide({
         <p>Select Tip %</p>
         <div className="tip-options">
           {tipOptions.map((tip) => (
-            <TipButton key={tip} onHandleClick={onTipChange} num={tip}>
+            <TipButton
+              mainTip={mainTip}
+              key={tip}
+              onHandleClick={onTipChange}
+              num={tip}
+            >
               {tip}%
             </TipButton>
           ))}
 
           <input
-            className={`tip-input`}
+            className={
+              mainTip === customTip ? "selected-tip-input" : "tip-input"
+            }
             type="number"
             placeholder="custom"
             value={customTip}
@@ -126,9 +138,11 @@ function LeftSide({
       </div>
 
       <div>
-        <div>
+        <div className="people-label">
           <p>Number of People</p>
-          <p className={numberOfPeople === 0 ? "" : "hidden"}>Can't be zero</p>
+          <p className={numberOfPeople === 0 ? "red" : "hidden"}>
+            Can't be zero
+          </p>
         </div>
         <input
           className="input"
@@ -142,9 +156,12 @@ function LeftSide({
   );
 }
 
-function TipButton({ num, children, onHandleClick }) {
+function TipButton({ mainTip, num, children, onHandleClick }) {
   return (
-    <button className="tip-option" onClick={() => onHandleClick(num)}>
+    <button
+      className={mainTip === num ? "selected-tip-option" : "tip-option"}
+      onClick={() => onHandleClick(num)}
+    >
       {children}
     </button>
   );
@@ -152,7 +169,15 @@ function TipButton({ num, children, onHandleClick }) {
 
 //   /* right side */
 
-function RightSide({ totalPerPerson, tipPerPerson, onReset }) {
+function RightSide({
+  numberOfPeople,
+  bill,
+  totalPerPerson,
+  tipPerPerson,
+  onReset,
+}) {
+  // console.log(!(numberOfPeople !== "" && bill !== 0), numberOfPeople, bill);
+
   return (
     <div className="right-side">
       <div>
@@ -175,7 +200,11 @@ function RightSide({ totalPerPerson, tipPerPerson, onReset }) {
           <p className="tip">${+totalPerPerson ? +totalPerPerson : "0.00"}</p>
         </div>
       </div>
-      <button onClick={() => onReset()} className="reset-btn">
+      <button
+        disabled={!(numberOfPeople !== "" && bill !== 0)}
+        onClick={() => onReset()}
+        className="reset-btn"
+      >
         RESET
       </button>
     </div>

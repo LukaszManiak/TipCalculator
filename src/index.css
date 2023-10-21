@@ -69,10 +69,9 @@ body {
   flex-wrap: wrap;
 }
 
-.tip-option {
+.tip-option,
+.selected-tip-option {
   width: 30%;
-  color: var(--white);
-  background-color: var(--veryDarkCyan);
   border: none;
   margin-top: 20px;
   border-radius: 0.3rem;
@@ -80,18 +79,46 @@ body {
   padding: 0;
 }
 
+.tip-option {
+  color: var(--white);
+  background-color: var(--veryDarkCyan);
+}
+
 .tip-option:hover {
   background-color: var(--lightStrongCyan);
 }
+.selected-tip-option {
+  background-color: var(--strongCyan);
+  color: var(--veryDarkCyan);
+}
 
-.tip-input {
+.tip-input,
+.selected-tip-input {
   width: 30%;
   margin-top: 20px;
   border-radius: 0.3rem;
   cursor: pointer;
-  border: none;
+  border: solid 1px transparent;
+}
+
+.tip-input {
   background-color: var(--veryLightGrayishCyan);
 }
+
+.selected-tip-input {
+  border: solid 1px var(--strongCyan);
+}
+
+.people-label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.red {
+  color: red;
+}
+
 /* right side */
 
 .right-side {
@@ -135,11 +162,45 @@ body {
 .reset-btn:hover {
   background-color: var(--veryLightGrayishCyan);
 }
+
+.reset-btn:disabled,
+.reset-btn[disabled] {
+  opacity: 0.4;
+}
+
 .hidden {
   display: none;
 }
-
 @media (max-width: 976px) {
+  .spliter-container {
+    width: 85%;
+    height: 40vh;
+    justify-content: space-between;
+  }
+  .left-side {
+    width: 45%;
+  }
+  .tip-options {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .tip-option,
+  .tip-input {
+    width: 48%;
+  }
+  .selected-tip-option,
+  .selected-tip-input {
+    width: 48%;
+  }
+
+  .tip-option {
+    padding: 6px 12px;
+  }
+  .input {
+    width: 100%;
+  }
+}
+@media (max-width: 676px) {
   html,
   * {
     overflow-x: hidden;
@@ -152,39 +213,39 @@ body {
   div {
     overflow-y: hidden;
   }
+  .input {
+    width: 95%;
+  }
   .spliter-tag {
     top: 7%;
   }
   .spliter-container {
-    width: 70%;
-    height: 100%;
-    top: 8%;
+    width: 87vw;
+    height: 85vh;
+    bottom: 35%;
     left: 50%;
-    transform: translate(-50%, 8%);
+    transform: translate(-50%, -35%);
     flex-direction: column;
-
+    padding: 1.4rem;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
-  .left-side,
+  .left-side {
+    width: 100%;
+  }
   .right-side {
     width: 90%;
   }
   .left-side {
-    height: 55%;
+    height: 60%;
   }
 
-  .tip-option,
-  .tip-input {
-    width: 45%;
-  }
-
-  .tip-option {
+  .selected-tip-option {
     padding: 5px 10px;
   }
 
   .right-side {
     margin-top: 30px;
-    height: 35%;
+    height: 25%;
   }
 }
