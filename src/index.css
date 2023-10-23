@@ -25,6 +25,19 @@ body {
   font-size: 24px;
 }
 
+.attribution-p {
+  padding: 0.2em 3em;
+  font-size: 0.8em;
+  text-align: center;
+}
+.attribution-link {
+  font-size: 1em;
+  color: var(--veryDarkCyan);
+  text-decoration: none;
+}
+.attribution-link:hover {
+  text-decoration: underline;
+}
 .spliter-tag {
   position: absolute;
   top: 15%;
@@ -217,7 +230,7 @@ body {
     width: 95%;
   }
   .spliter-tag {
-    top: 7%;
+    top: 8%;
   }
   .spliter-container {
     width: 87vw;
