@@ -25,10 +25,9 @@ Users should be able to:
 
 ### Screenshot
 
-<!--
-![Screenshot 1](/screenshots/advice-generator-app-ss1.jpg?raw=true "Screenshot 1")
-![Screenshot 2](/screenshots/advice-generator-app-ss2.jpeg?raw=true "Screenshot 2")
-![Screenshot 3](/screenshots/advice-generator-app-ss3.jpeg?raw=true "Screenshot 3") -->
+![Screenshot 1](/screenshots/screen1.jp3g?raw=true "Screenshot 1")
+![Screenshot 2](/screenshots/screen2.jpg?raw=true "Screenshot 2")
+![Screenshot 3](/screenshots/screen3.jpeg?raw=true "Screenshot 3")
 
 ### Links
 

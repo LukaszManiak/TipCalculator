@@ -25,15 +25,20 @@ body {
   font-size: 24px;
 }
 
+input {
+  text-align: end;
+}
+
 .attribution-p {
   padding: 0.2em 3em;
-  font-size: 0.8em;
+  font-size: 0.7rem;
   text-align: center;
 }
 .attribution-link {
   font-size: 1em;
   color: var(--veryDarkCyan);
   text-decoration: none;
+  transition: all 0.15s ease-in-out;
 }
 .attribution-link:hover {
   text-decoration: underline;
@@ -50,7 +55,7 @@ body {
 }
 .spliter-container {
   width: 60%;
-  height: 40%;
+  height: 42%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -71,8 +76,22 @@ body {
   justify-content: space-between;
 }
 
-.input {
+.input-bill,
+.input-people {
+  outline-color: var(--strongCyan);
   width: 100%;
+  background-color: var(--veryLightGrayishCyan);
+  padding: 0.4em 0.4em;
+  background-position: 0.8em 0.8em;
+  border-radius: 0.4rem;
+  background-repeat: no-repeat;
+  border: none;
+}
+.input-bill {
+  background-image: url("./images/icon-dollar.svg");
+}
+.input-people {
+  background-image: url("./images/icon-person.svg");
 }
 
 .tip-options {
@@ -95,9 +114,11 @@ body {
 .tip-option {
   color: var(--white);
   background-color: var(--veryDarkCyan);
+  transition: all 0.15s ease-in-out;
 }
 
 .tip-option:hover {
+  color: var(--veryDarkCyan);
   background-color: var(--lightStrongCyan);
 }
 .selected-tip-option {
@@ -112,24 +133,42 @@ body {
   border-radius: 0.3rem;
   cursor: pointer;
   border: solid 1px transparent;
+  outline-color: var(--strongCyan);
 }
 
 .tip-input {
+  text-align: center;
   background-color: var(--veryLightGrayishCyan);
 }
 
 .selected-tip-input {
-  border: solid 1px var(--strongCyan);
+  text-align: end;
+  border: solid 2px var(--strongCyan);
 }
 
 .people-label {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
 }
 
+.number-people {
+  width: 60%;
+}
+
 .red {
   color: red;
+  text-align: end;
+  width: 40%;
+}
+
+.red-input {
+  width: 98%;
+  padding: 0.4em 0.4em;
+  border-radius: 0.3rem;
+  outline-color: red;
+  border: solid 2px red;
 }
 
 /* right side */
@@ -171,6 +210,7 @@ body {
   border-radius: 0.2rem;
   cursor: pointer;
   color: var(--veryDarkCyan);
+  transition: all 0.15s ease-in-out;
 }
 .reset-btn:hover {
   background-color: var(--veryLightGrayishCyan);
@@ -184,11 +224,15 @@ body {
 .hidden {
   display: none;
 }
-@media (max-width: 976px) {
+@media (max-width: 1176px) {
+  .spliter-tag {
+    top: 9%;
+  }
   .spliter-container {
     width: 85%;
-    height: 40vh;
+    height: 50vh;
     justify-content: space-between;
+    align-items: center;
   }
   .left-side {
     width: 45%;
@@ -209,8 +253,20 @@ body {
   .tip-option {
     padding: 6px 12px;
   }
-  .input {
+  .input-bill,
+  .input-people {
     width: 100%;
+  }
+
+  .number-people {
+    width: 80%;
+  }
+
+  .red {
+    width: 50%;
+  }
+  .right-side {
+    height: 40vh;
   }
 }
 @media (max-width: 676px) {
@@ -226,7 +282,8 @@ body {
   div {
     overflow-y: hidden;
   }
-  .input {
+  .input-bill,
+  .input-people {
     width: 95%;
   }
   .spliter-tag {
@@ -237,6 +294,8 @@ body {
     height: 85vh;
     bottom: 35%;
     left: 50%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     transform: translate(-50%, -35%);
     flex-direction: column;
     padding: 1.4rem;
@@ -245,20 +304,24 @@ body {
   }
   .left-side {
     width: 100%;
+    height: 65%;
+    justify-content: space-around;
   }
   .right-side {
     width: 90%;
-  }
-  .left-side {
-    height: 60%;
+    margin-top: 25px;
+    height: 25%;
   }
 
   .selected-tip-option {
     padding: 5px 10px;
   }
 
-  .right-side {
-    margin-top: 30px;
-    height: 25%;
+  .attribution-p {
+    font-size: 0.5em;
+  }
+
+  .red-input {
+    width: 94%;
   }
 }

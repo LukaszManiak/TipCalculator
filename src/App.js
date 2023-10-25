@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import logoSvg from "./images/logo.svg";
 const tipOptions = [5, 10, 15, 25, 50];
 
 function App() {
@@ -52,10 +52,8 @@ function App() {
 
   return (
     <>
-      <div className="spliter-tag">
-        <h1>SPLI</h1>
-        <h1>TTER</h1>
-      </div>
+      <img src={logoSvg} alt="logo" className="spliter-tag" />
+
       <p className="attribution-p">
         Challenge by{" "}
         <a
@@ -64,7 +62,7 @@ function App() {
         >
           Frontend Mentor
         </a>
-        .Coded by{" "}
+        . Coded by{" "}
         <a className="attribution-link" href="https://github.com/LukaszManiak">
           Łukasz Maniak
         </a>
@@ -117,7 +115,7 @@ function LeftSide({
       <div>
         <p>Bill</p>
         <input
-          className="input"
+          className="input-bill"
           type="number"
           placeholder="0"
           value={bill}
@@ -153,13 +151,13 @@ function LeftSide({
 
       <div>
         <div className="people-label">
-          <p>Number of People</p>
+          <p className="number-people">Number of People</p>
           <p className={numberOfPeople === 0 ? "red" : "hidden"}>
             Can't be zero
           </p>
         </div>
         <input
-          className="input"
+          className={numberOfPeople === 0 ? "red-input" : "input-people"}
           type="number"
           placeholder="0"
           value={numberOfPeople}
