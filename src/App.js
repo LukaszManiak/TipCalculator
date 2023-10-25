@@ -34,12 +34,14 @@ function App() {
 
   let totalPerPerson = 0;
   let tipPerPerson = 0;
-  let tipAmount = bill * (0.1 * tip);
+  let tipAmount = bill * (+tip / 100);
   let total = tipAmount + bill;
   tipPerPerson =
     numberOfPeople > 0 ? (tipAmount / numberOfPeople).toFixed(2) : 0;
   totalPerPerson = numberOfPeople > 0 ? (total / numberOfPeople).toFixed(2) : 0;
 
+  console.log(total, tipAmount, tip);
+  console.log(tipPerPerson, totalPerPerson);
   function handleReset() {
     setTip(0);
     setBill(0);
