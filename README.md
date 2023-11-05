@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Built with
 
--React.js
 
+- React.js
 - HTML5
 - CSS
 - JavaScript
