@@ -25,8 +25,8 @@ Users should be able to:
 
 ### Links
 
-<!-- - Solution URL: [GitHub](https://github.com/Mejniak/Frontend-Mentor---Advice-generator-app) -->
-<!-- - Live Site URL: [Netlify](https://advicegeneratorapp-lukas.netlify.app/) -->
+- Solution URL: [GitHub](https://github.com/LukaszManiak/Frontend-Mentor-tip-calculator)
+- Live Site URL: [Netlify](https://lukas-tipcalculator.netlify.app/)
 
 ### Built with
 
