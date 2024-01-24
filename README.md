@@ -1,4 +1,4 @@
-# Frontend Mentor - Tip calculator app
+# Tip calculator app
 
 ## Welcome! 👋
 
